@@ -1,0 +1,326 @@
+:root {
+    --main-color: #f0f0f0;
+    --card-color: #fff;
+    --text-color: #212121;
+    --link-color: #5CA904;
+    --button-color: #5CA904;
+    --side-nav: #2f2f2f;
+    --laptop-padding: 100px;
+    --tablet-padding: 50px;
+    --mobile-padding: 15px;
+}
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    background-color: var(--main-color);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px var(--mobile-padding);
+    background-color: var(--card-color);
+    box-shadow: 0 8px 20px -18px rgba(0, 0, 0, 0.2);
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 35px;
+    height: 3px;
+    background-color: var(--button-color);
+    border-radius: 5px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.open span {
+    background-color: var(--button-color);
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 60%;
+    max-width: 240px;
+    height: 100vh;
+    background-color: var(--side-nav);
+    z-index: 1000;
+    padding: 80px 0 30px;
+    transition: right 0.35s ease;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links.open {
+    right: 0;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-links ul li a {
+    display: block;
+    padding: 16px 30px;
+    border-left: 4px solid transparent;
+    color: var(--main-color);
+    font-family: 'Arial', sans-serif;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.5s ease, border-left-color 0.5s ease, background-color 0.5s ease;
+}
+
+.nav-links ul li a[aria-current="page"] {
+    border-left: 4px solid var(--link-color);
+    color: var(--link-color);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.nav-links ul li a.active {
+    border-left-color: var(--link-color);
+    color: var(--link-color);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.call-btn {
+    display: none;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+.strategy-list .strategy-toggle {
+    display: block;
+    width: 100%;
+    padding: 16px 30px;
+    border: none;
+    border-left: 4px solid transparent;
+    background: none;
+    color: var(--main-color);
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+}
+
+.nav-links ul .strategy-list .strategy-dropdown {
+    display: none;
+    list-style: none;
+    padding-left: 30px;
+    transition: all 0.3s ease;
+}
+
+.nav-links ul .strategy-list .strategy-dropdown.open {
+    display: block;
+}
+
+
+.nav-links ul .strategy-list .strategy-dropdown a {
+    display: block;
+    padding: 12px 30px;
+    color: var(--main-color);
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+.nav-links ul .strategy-list .strategy-dropdown a:hover {
+    color: var(--link-color);
+}
+
+
+@media (min-width: 480px) {
+    nav {
+        padding: 16px var(--tablet-padding);
+    }
+}
+
+@media (min-width: 768px) {
+    nav {
+        padding: 16px 10px;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .nav-links {
+        position: static;
+        width: auto;
+        max-width: none;
+        height: auto;
+        background: none;
+        padding: 0;
+        transition: none;
+        box-shadow: none;
+    }   
+
+    .nav-links ul {
+        flex-direction: row;
+        gap: 24px;
+    }
+
+    .nav-links ul li a[aria-current="page"] {
+        color: var(--link-color);
+        border: none;
+        background-color: transparent;
+    }
+
+    .nav-links ul li a {
+        padding: 0;
+        border: none;
+        color: var(--text-color);
+        background-color: transparent;
+    }
+
+    .nav-links ul li a:hover {
+        background-color: transparent;
+        color: var(--link-color);
+    }
+
+    .nav-links ul li a.active {
+        color: var(--text-color);
+        border: none;
+        background-color: transparent;
+    }
+
+    .call-btn {
+        display: block;
+    }
+
+    .call-btn button a {
+        text-decoration: none;
+        color: var(--main-color)
+    }
+
+    .call-btn button {
+        padding: 15px 25px;
+        border: none;
+        background-color: var(--text-color);
+        color: var(--main-color);
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: color 0.5s ease-out
+    }
+
+    .call-btn button::before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        width: 150%;
+        height: 300%;
+        background-color: var(--button-color);
+        border-radius: 50%;
+        transform: translateX(-50%);
+        transition: transform 0.5s ease-out, top 0.5s ease-out;
+        z-index: -1;
+    }
+
+    .call-btn button:hover {
+        color: var(--text-color);
+    }
+
+    .call-btn button:hover::before {
+        top: -100%;
+        transform: translateX(-50%) scale(1.2);
+    }
+
+    .nav-links ul li a[href="contact-us"] {
+        display: none;
+    }
+
+    .nav-links ul .strategy-list {
+        position: relative;
+    }
+
+    .nav-links ul .strategy-list .strategy-dropdown {
+        display: none;
+        padding-left: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--side-nav);
+        list-style: none;
+        min-width: 160px;
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links ul .strategy-list .strategy-dropdown a {
+        padding: 15px 20px;
+        color: var(--main-color);
+    }
+
+    .nav-links ul .strategy-list .strategy-dropdown a:hover {
+        background-color: var(--link-color);
+        color: var(--main-color);
+    }
+
+    .nav-links ul .strategy-list:hover .strategy-dropdown {
+        display: block;
+    }
+}
