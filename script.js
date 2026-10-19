@@ -31,12 +31,22 @@ navAnchors.forEach(link => {
         navAnchors.forEach(l => l.classList.remove('active'));
 
         this.classList.add('active');
+
+        // Close mobile menu after clicking a link
+        if (navLinks.classList.contains('open')) {
+            closeMenu();
+        }
     });
 });
 
-strategyToggle.addEventListener('click', () => {
+strategyToggle.addEventListener('click', (e) => {
+    e.preventDefault();
     strategyDropdown.classList.toggle('open');
+});
 
-    const isOpen = strategyDropdown.classList.contains('open');
-    strategyToggle.textContent = isOpen ? 'Our Strategy ▸' : 'Our Strategy ▾';
+// Close dropdowns when clicking outside
+document.addEventListener('click', (e) => {
+    if (!strategyToggle.contains(e.target) && !strategyDropdown.contains(e.target)) {
+        strategyDropdown.classList.remove('open');
+    }
 });

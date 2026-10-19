@@ -5,14 +5,42 @@
     --link-color: #5CA904;
     --button-color: #5CA904;
     --side-nav: #2f2f2f;
+    --accent-color: #F25C54;
+    --accent-red: #E63946;
     --laptop-padding: 100px;
     --tablet-padding: 50px;
     --mobile-padding: 15px;
+    --footer-bg: #1a1a1a;
+    --footer-text: #cccccc;
 }
 
+/* Skip link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--button-color);
+    color: var(--card-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    z-index: 1001;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* Font smoothing and base setup */
 html {
     box-sizing: border-box;
     scroll-behavior: smooth;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -27,8 +55,12 @@ ul {
 
 body {
     background-color: var(--main-color);
+    font-family: 'DM Sans', Arial, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
+/* ===== Navbar (fixed at top) ===== */
 nav {
     display: flex;
     align-items: center;
@@ -36,6 +68,11 @@ nav {
     padding: 16px var(--mobile-padding);
     background-color: var(--card-color);
     box-shadow: 0 8px 20px -18px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .logo img {
@@ -59,13 +96,13 @@ nav {
     display: block;
     width: 35px;
     height: 3px;
-    background-color: var(--button-color);
+    background-color: var(--text-color);
     border-radius: 5px;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .hamburger.open span {
-    background-color: var(--button-color);
+    background-color: var(--text-color);
 }
 
 .hamburger.open span:nth-child(1) {
@@ -88,7 +125,7 @@ nav {
     max-width: 240px;
     height: 100vh;
     background-color: var(--side-nav);
-    z-index: 1000;
+    z-index: 999;
     padding: 80px 0 30px;
     transition: right 0.35s ease;
     box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
@@ -109,7 +146,7 @@ nav {
     padding: 16px 30px;
     border-left: 4px solid transparent;
     color: var(--main-color);
-    font-family: 'Arial', sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 600;
@@ -132,12 +169,51 @@ nav {
     display: none;
 }
 
+/* Emergency Call Button (floating, bottom-right on hero sections) */
+.emergency-call {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--accent-red);
+    color: var(--card-color);
+    padding: 14px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 6px 20px rgba(230, 57, 70, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.emergency-call:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(230, 57, 70, 0.45);
+}
+
+.emergency-call svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 6px 20px rgba(230, 57, 70, 0.35); }
+    50% { box-shadow: 0 6px 20px rgba(230, 57, 70, 0.55); }
+    100% { box-shadow: 0 6px 20px rgba(230, 57, 70, 0.35); }
+}
+
 .overlay {
     display: none;
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.4);
-    z-index: 999;
+    z-index: 998;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -155,7 +231,7 @@ nav {
     border-left: 4px solid transparent;
     background: none;
     color: var(--main-color);
-    font-family: 'Arial', sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
     font-size: 1rem;
     font-weight: 600;
     text-align: left;
@@ -178,6 +254,7 @@ nav {
     display: block;
     padding: 12px 30px;
     color: var(--main-color);
+    font-family: 'DM Sans', Arial, sans-serif;
     font-size: 0.8rem;
     text-decoration: none;
 }
@@ -195,7 +272,7 @@ nav {
 
 @media (min-width: 768px) {
     nav {
-        padding: 16px 10px;
+        padding: 16px var(--laptop-padding);
     }
 
     .hamburger {
@@ -211,7 +288,7 @@ nav {
         padding: 0;
         transition: none;
         box-shadow: none;
-    }   
+    }
 
     .nav-links ul {
         flex-direction: row;
@@ -229,6 +306,7 @@ nav {
         border: none;
         color: var(--text-color);
         background-color: transparent;
+        font-family: 'DM Sans', Arial, sans-serif;
     }
 
     .nav-links ul li a:hover {
@@ -248,7 +326,8 @@ nav {
 
     .call-btn button a {
         text-decoration: none;
-        color: var(--main-color)
+        color: var(--main-color);
+        font-family: 'DM Sans', Arial, sans-serif;
     }
 
     .call-btn button {
@@ -262,7 +341,8 @@ nav {
         position: relative;
         overflow: hidden;
         z-index: 1;
-        transition: color 0.5s ease-out
+        transition: color 0.5s ease-out;
+        font-family: 'DM Sans', Arial, sans-serif;
     }
 
     .call-btn button::before {
@@ -296,7 +376,7 @@ nav {
         padding: 0;
         border: none;
         color: var(--text-color);
-        font-family: 'Arial', sans-serif;
+        font-family: 'DM Sans', Arial, sans-serif;
         font-size: 1rem;
         font-weight: 600;
         width: auto;
@@ -328,6 +408,7 @@ nav {
     .nav-links ul .strategy-list .strategy-dropdown a {
         padding: 15px 20px;
         color: var(--main-color);
+        font-family: 'DM Sans', Arial, sans-serif;
     }
 
     .nav-links ul .strategy-list .strategy-dropdown a:hover {
@@ -340,20 +421,33 @@ nav {
     }
 }
 
+@media (min-width: 1024px) {
+    .nav-links ul {
+        gap: 32px;
+    }
+
+    .section {
+        padding: 80px 100px;
+    }
+}
+
 /* ===== Page Content Styles ===== */
 
 .hero {
     background-color: var(--card-color);
-    padding: 80px var(--mobile-padding) 40px;
+    padding: 100px var(--mobile-padding) 60px;
     text-align: center;
     box-shadow: 0 8px 20px -18px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin-top: 70px;
 }
 
 .hero h1 {
     font-size: 2.5rem;
     color: var(--text-color);
     margin-bottom: 16px;
-    font-family: 'Arial', sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-weight: 700;
 }
 
 .hero p {
@@ -362,6 +456,24 @@ nav {
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
+}
+
+.hero .btn {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 14px 32px;
+    background-color: var(--button-color);
+    color: var(--card-color);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-family: 'DM Sans', Arial, sans-serif;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Section styling */
@@ -375,8 +487,9 @@ nav {
     font-size: 2rem;
     color: var(--text-color);
     margin-bottom: 8px;
-    font-family: 'Arial', sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
     text-align: center;
+    font-weight: 700;
 }
 
 .section h2 .accent {
@@ -395,6 +508,79 @@ nav {
     margin: 0;
     padding: 60px var(--mobile-padding);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+/* Image showcase section */
+.showcase {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px var(--mobile-padding);
+}
+
+.showcase h2 {
+    font-size: 2rem;
+    color: var(--text-color);
+    margin-bottom: 8px;
+    font-family: 'DM Sans', Arial, sans-serif;
+    text-align: center;
+    font-weight: 700;
+}
+
+.showcase h2 .accent {
+    color: var(--button-color);
+}
+
+.showcase p {
+    line-height: 1.8;
+    color: #555;
+    font-size: 1rem;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.showcase .images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.showcase .image-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--card-color);
+}
+
+.showcase .image-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.showcase .image-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.showcase .image-card .caption {
+    padding: 16px;
+}
+
+.showcase .image-card .caption h3 {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 8px;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-weight: 600;
+}
+
+.showcase .image-card .caption p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
 }
 
 /* Cards */
@@ -422,13 +608,26 @@ nav {
     font-size: 1.3rem;
     color: var(--text-color);
     margin-bottom: 12px;
-    font-family: 'Arial', sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-weight: 600;
 }
 
 .card p {
     color: #666;
     font-size: 0.95rem;
     line-height: 1.7;
+}
+
+.card .badge {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 4px 12px;
+    background-color: rgba(92, 169, 4, 0.1);
+    color: var(--button-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 20px;
+    font-family: 'DM Sans', Arial, sans-serif;
 }
 
 /* Two-column layout */
@@ -471,7 +670,7 @@ nav {
     margin-bottom: 6px;
     font-weight: 600;
     color: var(--text-color);
-    font-family: 'Arial', sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
     font-size: 0.95rem;
 }
 
@@ -482,7 +681,7 @@ nav {
     padding: 12px 16px;
     border: 1px solid #ddd;
     border-radius: 6px;
-    font-family: 'Arial', sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
     font-size: 1rem;
     color: var(--text-color);
     transition: border-color 0.3s ease;
@@ -515,14 +714,24 @@ nav {
 }
 
 .contact-item .icon {
-    font-size: 1.5rem;
+    width: 24px;
+    height: 24px;
     color: var(--button-color);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.contact-item .icon svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
 }
 
 .contact-item h4 {
     font-size: 1rem;
     margin-bottom: 4px;
-    font-family: 'Arial', sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-weight: 600;
 }
 
 .contact-item p,
@@ -537,10 +746,10 @@ nav {
     color: var(--link-color);
 }
 
-/* CTA banner */
+/* CTA banner — now uses accent color instead of link color */
 .cta {
-    background: linear-gradient(135deg, var(--button-color), #4a8a03);
-    color: var(--main-color);
+    background: linear-gradient(135deg, var(--accent-color), #d94a42);
+    color: var(--card-color);
     text-align: center;
     padding: 60px var(--mobile-padding);
     margin: 40px 0;
@@ -550,6 +759,8 @@ nav {
 .cta h2 {
     font-size: 2rem;
     margin-bottom: 16px;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-weight: 700;
 }
 
 .cta p {
@@ -562,12 +773,12 @@ nav {
 .cta .btn {
     display: inline-block;
     padding: 14px 32px;
-    background-color: var(--main-color);
-    color: var(--text-color);
+    background-color: var(--card-color);
+    color: var(--accent-color);
     text-decoration: none;
     border-radius: 6px;
     font-weight: 600;
-    font-family: 'Arial', sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -596,12 +807,12 @@ td {
     padding: 14px 20px;
     text-align: left;
     border-bottom: 1px solid #eee;
+    font-family: 'DM Sans', Arial, sans-serif;
 }
 
 th {
     background-color: var(--button-color);
     color: var(--main-color);
-    font-family: 'Arial', sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
 }
@@ -649,8 +860,113 @@ tbody tr:hover {
     background-color: var(--button-color);
 }
 
+/* ===== Footer ===== */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    font-family: 'DM Sans', Arial, sans-serif;
+    padding: 60px var(--mobile-padding) 30px;
+    margin-top: 40px;
+}
+
+footer .footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer .footer-col h4 {
+    font-size: 1.1rem;
+    color: var(--card-color);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+footer .footer-col ul {
+    list-style: none;
+}
+
+footer .footer-col ul li {
+    margin-bottom: 10px;
+}
+
+footer .footer-col ul li a {
+    color: var(--footer-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+footer .footer-col ul li a:hover {
+    color: var(--link-color);
+}
+
+footer .social-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+footer .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--card-color);
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+footer .social-links a:hover {
+    background-color: var(--link-color);
+    color: var(--card-color);
+}
+
+footer .social-links svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+footer .copyright {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+    color: rgba(204, 204, 204, 0.7);
+}
+
+/* Responsive footer */
+@media (min-width: 768px) {
+    footer .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    footer .footer-col h4 {
+        font-size: 1.15rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    footer .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+    }
+}
+
 /* Responsive */
 @media (min-width: 768px) {
+    .hero {
+        padding: 120px var(--mobile-padding) 60px;
+    }
+
     .hero h1 {
         font-size: 3.5rem;
     }
@@ -667,10 +983,27 @@ tbody tr:hover {
 
 @media (max-width: 767px) {
     .hero {
-        padding: 60px 15px 30px;
+        padding: 90px 15px 40px;
     }
 
     .hero h1 {
         font-size: 2rem;
+    }
+
+    .emergency-call {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .section {
+        padding: 80px 50px;
+    }
+
+    nav {
+        padding: 16px 50px;
     }
 }

@@ -1,0 +1,36 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#e8f8e8"/>
+  <!-- Field -->
+  <rect x="0" y="200" width="600" height="200" fill="#4a9a3a"/>
+  <rect x="0" y="200" width="600" height="8" fill="#fff"/>
+  <rect x="0" y="250" width="600" height="8" fill="#fff"/>
+  <rect x="0" y="300" width="600" height="8" fill="#fff"/>
+  <!-- Center circle -->
+  <circle cx="300" cy="245" r="20" fill="none" stroke="#fff" stroke-width="3"/>
+  <circle cx="300" cy="245" r="5" fill="#fff"/>
+  <!-- Goal boxes -->
+  <rect x="20" y="215" width="10" height="70" fill="#fff"/>
+  <rect x="570" y="215" width="10" height="70" fill="#fff"/>
+  <!-- Players (simplified) -->
+  <!-- Player 1 -->
+  <circle cx="120" cy="180" r="8" fill="#2a5d9f"/>
+  <rect x="115" y="188" width="10" height="16" fill="#2a5d9f"/>
+  <!-- Player 2 -->
+  <circle cx="180" cy="175" r="8" fill="#2a5d9f"/>
+  <rect x="175" y="183" width="10" height="16" fill="#2a5d9f"/>
+  <!-- Player 3 (kicking ball) -->
+  <circle cx="220" cy="195" r="8" fill="#e63946"/>
+  <rect x="215" y="203" width="10" height="16" fill="#e63946"/>
+  <!-- Ball -->
+  <circle cx="240" cy="190" r="4" fill="#fff"/>
+  <!-- Player 4 -->
+  <circle cx="350" cy="185" r="8" fill="#2a5d9f"/>
+  <rect x="345" y="193" width="10" height="16" fill="#2a5d9f"/>
+  <!-- Player 5 (goalie) -->
+  <circle cx="300" cy="245" r="10" fill="#8b5a2b"/>
+  <rect x="292" y="255" width="16" height="20" fill="#8b5a2b"/>
+  <!-- Player 6 -->
+  <circle cx="420" cy="180" r="8" fill="#2a5d9f"/>
+  <rect x="415" y="188" width="10" height="16" fill="#2a5d9f"/>
+  <text x="300" y="390" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="14" fill="#555">Youth playing football in community fields</text>
+</svg>

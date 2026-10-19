@@ -1,0 +1,35 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#fcefee"/>
+  <!-- Support center background -->
+  <rect x="40" y="80" width="520" height="240" fill="#fff" rx="10" rx="10"/>
+  <!-- Phone/helpline illustration -->
+  <!-- Phone base -->
+  <rect x="480" y="100" width="60" height="100" fill="#2d5a4a" rx="15"/>
+  <!-- Phone screen -->
+  <rect x="490" y="120" width="40" height="55" fill="#555" rx="8"/>
+  <!-- Phone receiver -->
+  <rect x="500" y="185" width="20" height="15" fill="#333" rx="5"/>
+  <!-- Phone cord -->
+  <path d="M490 180 Q480 200 470 215 Q460 230 450 245" stroke="#333" stroke-width="3" fill="none"/>
+  <!-- Person on phone -->
+  <circle cx="80" cy="220" r="15" fill="#2d5a4a"/>
+  <rect x="70" y="235" width="20" height="45" fill="#2d5a4a"/>
+  <!-- Other person receiving support -->
+  <circle cx="200" cy="200" r="12" fill="#4a7a6a"/>
+  <rect x="192" y="212" width="16" height="35" fill="#4a7a6a"/>
+  <!-- Counselor -->
+  <circle cx="320" cy="180" r="14" fill="#7d9d7d"/>
+  <rect x="312" y="194" width="16" height="38" fill="#7d9d7d"/>
+  <!-- Help hotline text -->
+  <text x="300" y="320" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="16" fill="#e63946" font-weight="bold">24/7 Crisis Support Hotline</text>
+  <text x="300" y="340" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="13" fill="#555">Call or text anytime for free, confidential counseling</text>
+  <!-- Emergency call icon -->
+  <circle cx="480" cy="90" r="12" fill="#e63946"/>
+  <path d="M475 83 L485 93 M485 83 L475 93" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="480" cy="90" r="4" fill="none" stroke="#fff" stroke-width="1"/>
+  <text x="300" y="60" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="20" fill="#2d5a4a" font-weight="bold">Support & Counseling</text>
+  <!-- Speech bubble -->
+  <rect x="220" y="130" width="60" height="35" fill="#fff" rx="15" rx="15"/>
+  <rect x="225" y="135" width="50" height="25" fill="#e8f0f2" rx="10"/>
+  <text x="250" y="152" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="10" fill="#555">You're not alone</text>
+</svg>
