@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <a href="#skip" class="skip-link">Skip to content</a>
+    <a href="#main" class="skip-link">Skip to content</a>
     <nav>
         <div class="logo">
             <a href="index.html">
@@ -18,7 +18,7 @@
             </a>
         </div>
 
-        <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
@@ -30,7 +30,7 @@
                 <li><a href="about.html">About SI</a></li>
 
                 <li class="strategy-list">
-                    <button class="strategy-toggle">Our Strategy</button>
+                    <button class="strategy-toggle" aria-expanded="false">Our Strategy</button>
                     <ul class="strategy-dropdown">
                         <li><a href="strategy.html#mission">Our Mission</a></li>
                         <li><a href="strategy.html#vision">Our Vision</a></li>
@@ -38,7 +38,7 @@
                 </li>
                 <li><a href="sponsorship.html">Sponsorship</a></li>
                 <li><a href="loans.html">Loans</a></li>
-                <li><a href="gnc.html">Grants & Contracts</a></li>
+                <li><a href="gnc.html">Grants &amp; Contracts</a></li>
                 <li><a href="contact-us.html">Contact Us</a></li>
             </ul>
         </div>
@@ -50,21 +50,22 @@
 
     <div class="overlay" id="overlay"></div>
 
+    <main id="main">
     <section class="hero">
         <h1>Empowering Young Changemakers Worldwide</h1>
         <p>We provide young people with the knowledge, capital, and networks they need to launch and sustain impactful ventures in their communities. Whether you are seeking educational resources, financial support, or a supportive peer network, we are here to help.</p>
         <a href="contact-us.html" class="btn">Get Started Today</a>
-        <a href="contact-us.html" class="emergency-call" aria-label="Crisis support hotline">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <a href="tel:+15551234357" class="emergency-call" aria-label="Crisis support hotline: (555) 123-4357">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.79a1 1 0 01.89 1.1v4a1 1 0 01-1 1C8.93 22 2 15.07 2 6.05a1 1 0 011-1h4a1 1 0 011 1.11c.03 1.35.31 2.67.79 3.88a1 1 0 01-.21 1.11z"/>
             </svg>
-            Crisis Support: (555) 123-HELP
+            <span class="emergency-text">Crisis Support: (555) 123-HELP</span>
         </a>
     </section>
 
     <section class="section">
         <h2>Our Core <span class="accent">Programs</span></h2>
-        <p style="text-align: center; max-width: 700px; margin: 0 auto 40px; color: #555;">
+        <p class="section-intro">
             We run three interconnected programs that work together to create lasting change for young people
             and the communities they serve. Each program is designed to be accessible, youth-led, and focused
             on real-world impact.
@@ -75,7 +76,7 @@
                 <h3>Knowledge Programs</h3>
                 <p>Free, accessible education in financial literacy, leadership, entrepreneurship, and civic
                    engagement. Our curriculum is co-designed with youth and delivered both online and in person.</p>
-                <a href="about.html" class="btn" style="margin-top: 16px; display: inline-block; padding: 8px 20px; font-size: 0.9rem;">
+                <a href="about.html" class="card-btn small">
                     Learn More
                 </a>
             </div>
@@ -83,7 +84,7 @@
                 <h3>Youth Microloan Fund</h3>
                 <p>Small, low-interest loans for young entrepreneurs who lack access to traditional banking.
                    Our peer-guarantee model replaces collateral requirements with community support.</p>
-                <a href="loans.html" class="btn" style="margin-top: 16px; display: inline-block; padding: 8px 20px; font-size: 0.9rem;">
+                <a href="loans.html" class="card-btn small">
                     Apply Now
                 </a>
             </div>
@@ -91,7 +92,7 @@
                 <h3>Network Building</h3>
                 <p>Connecting young leaders with peers, mentors, and decision-makers through our Global Youth
                    Summit, local chapter meetups, and digital collaboration platforms.</p>
-                <a href="about.html" class="btn" style="margin-top: 16px; display: inline-block; padding: 8px 20px; font-size: 0.9rem;">
+                <a href="about.html" class="card-btn small">
                     Join the Network
                 </a>
             </div>
@@ -146,25 +147,24 @@
 
     <section class="section alt">
         <h2>Global <span class="accent">Reach</span></h2>
-        <blockquote style="max-width: 800px; margin: 0 auto; font-size: 1.5rem; font-style: normal; color: #555; text-align: center; line-height: 1.6;">
+        <blockquote class="testimonial">
             "Seed Initiative gave me the confidence and resources to launch my own social enterprise.
             Now I am creating jobs in my community."
         </blockquote>
-        <p style="text-align: center; margin-top: 24px; color: var(--button-color); font-weight: 600;">
+        <p class="testimonial-author">
             Maya R., Lagos Chapter Founder
         </p>
     </section>
+    </main>
 
     <footer>
         <div class="footer-content">
             <div class="footer-col">
-                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-                    <img src="images/SEED-LOGO.png" alt="Seed Initiative" style="height: 36px;">
-                    <span style="font-family: 'DM Sans', Arial, sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--card-color);">
-                        Seed Initiative
-                    </span>
+                <div class="footer-logo">
+                    <img src="images/SEED-LOGO.png" alt="Seed Initiative">
+                    <span>Seed Initiative</span>
                 </div>
-                <p style="color: rgba(204, 204, 204, 0.8); font-size: 0.9rem; line-height: 1.6; max-width: 280px;">
+                <p class="footer-text">
                     Cultivating the next generation of changemakers through innovative education,
                     sustainable finance, and community-driven impact.
                 </p>
@@ -177,7 +177,7 @@
                     <li><a href="strategy.html">Our Strategy</a></li>
                     <li><a href="sponsorship.html">Sponsorship</a></li>
                     <li><a href="loans.html">Microloans</a></li>
-                    <li><a href="gnc.html">Grants & Contracts</a></li>
+                    <li><a href="gnc.html">Grants &amp; Contracts</a></li>
                     <li><a href="contact-us.html">Contact</a></li>
                 </ul>
             </div>
@@ -195,11 +195,11 @@
 
             <div class="footer-col">
                 <h4>Support</h4>
-                <p style="margin-bottom: 16px; font-size: 0.9rem;">24/7 Crisis Support Hotline</p>
-                <p style="font-size: 1.3rem; font-weight: 700; color: var(--accent-red); margin-bottom: 16px;">
+                <p>24/7 Crisis Support Hotline</p>
+                <p class="phone-number">
                     (555) 123-4357
                 </p>
-                <p style="font-size: 0.85rem; color: rgba(204, 204, 204, 0.7);">
+                <p class="footer-small">
                     Available anytime for young people who need someone to talk to.
                 </p>
             </div>
@@ -207,7 +207,7 @@
 
         <div class="copyright">
             <p>&copy; 2025 Seed Initiative. All rights reserved.</p>
-            <p style="margin-top: 4px;">Registered 501(c)(3) nonprofit organization | EIN 84-2345678</p>
+            <p>Registered 501(c)(3) nonprofit organization | EIN 84-2345678</p>
         </div>
     </footer>
     <script src="script.js"></script>

@@ -12,7 +12,11 @@
     --mobile-padding: 15px;
     --footer-bg: #1a1a1a;
     --footer-text: #cccccc;
+    --heading-md: 2rem;
+    --heading-lg: 2.5rem;
 }
+
+/* ===== Base Styles ===== */
 
 /* Skip link for accessibility */
 .skip-link {
@@ -58,6 +62,69 @@ body {
     font-family: 'DM Sans', Arial, sans-serif;
     color: var(--text-color);
     line-height: 1.6;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--mobile-padding);
+}
+
+/* ===== Reusable Utility Classes ===== */
+
+.text-center { text-align: center; }
+.text-accent { color: var(--button-color); }
+.font-sans { font-family: 'DM Sans', Arial, sans-serif; }
+
+/* Card button with size variants */
+.card-btn {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 24px;
+    background-color: var(--button-color);
+    color: var(--card-color);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 0.95rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-btn.small {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+/* Section intro paragraph */
+.section-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: #555;
+}
+
+/* Testimonial styling */
+.testimonial {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    font-style: normal;
+    color: #555;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    text-align: center;
+    margin-top: 24px;
+    color: var(--button-color);
+    font-weight: 600;
 }
 
 /* ===== Navbar (fixed at top) ===== */
@@ -146,7 +213,6 @@ nav {
     padding: 16px 30px;
     border-left: 4px solid transparent;
     color: var(--main-color);
-    font-family: 'DM Sans', Arial, sans-serif;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 600;
@@ -249,7 +315,6 @@ nav {
     display: block;
 }
 
-
 .nav-links ul .strategy-list .strategy-dropdown a {
     display: block;
     padding: 12px 30px;
@@ -263,7 +328,7 @@ nav {
     color: var(--link-color);
 }
 
-
+/* ===== Responsive Navbar ===== */
 @media (min-width: 480px) {
     nav {
         padding: 16px var(--tablet-padding);
@@ -306,7 +371,6 @@ nav {
         border: none;
         color: var(--text-color);
         background-color: transparent;
-        font-family: 'DM Sans', Arial, sans-serif;
     }
 
     .nav-links ul li a:hover {
@@ -327,7 +391,6 @@ nav {
     .call-btn button a {
         text-decoration: none;
         color: var(--main-color);
-        font-family: 'DM Sans', Arial, sans-serif;
     }
 
     .call-btn button {
@@ -368,7 +431,7 @@ nav {
         transform: translateX(-50%) scale(1.2);
     }
 
-    .nav-links ul li a[href="contact-us"] {
+    .nav-links ul li a[href$="contact-us.html"] {
         display: none;
     }
 
@@ -376,7 +439,6 @@ nav {
         padding: 0;
         border: none;
         color: var(--text-color);
-        font-family: 'DM Sans', Arial, sans-serif;
         font-size: 1rem;
         font-weight: 600;
         width: auto;
@@ -408,7 +470,6 @@ nav {
     .nav-links ul .strategy-list .strategy-dropdown a {
         padding: 15px 20px;
         color: var(--main-color);
-        font-family: 'DM Sans', Arial, sans-serif;
     }
 
     .nav-links ul .strategy-list .strategy-dropdown a:hover {
@@ -427,7 +488,7 @@ nav {
     }
 
     .section {
-        padding: 80px 100px;
+        padding: 80px var(--laptop-padding);
     }
 }
 
@@ -443,10 +504,9 @@ nav {
 }
 
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: var(--heading-lg);
     color: var(--text-color);
     margin-bottom: 16px;
-    font-family: 'DM Sans', Arial, sans-serif;
     font-weight: 700;
 }
 
@@ -467,7 +527,6 @@ nav {
     text-decoration: none;
     border-radius: 6px;
     font-weight: 600;
-    font-family: 'DM Sans', Arial, sans-serif;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -484,10 +543,9 @@ nav {
 }
 
 .section h2 {
-    font-size: 2rem;
+    font-size: var(--heading-md);
     color: var(--text-color);
     margin-bottom: 8px;
-    font-family: 'DM Sans', Arial, sans-serif;
     text-align: center;
     font-weight: 700;
 }
@@ -518,10 +576,9 @@ nav {
 }
 
 .showcase h2 {
-    font-size: 2rem;
+    font-size: var(--heading-md);
     color: var(--text-color);
     margin-bottom: 8px;
-    font-family: 'DM Sans', Arial, sans-serif;
     text-align: center;
     font-weight: 700;
 }
@@ -573,7 +630,6 @@ nav {
     font-size: 1.1rem;
     color: var(--text-color);
     margin-bottom: 8px;
-    font-family: 'DM Sans', Arial, sans-serif;
     font-weight: 600;
 }
 
@@ -604,11 +660,12 @@ nav {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
+.card.centered { text-align: center; }
+
 .card h3 {
     font-size: 1.3rem;
     color: var(--text-color);
     margin-bottom: 12px;
-    font-family: 'DM Sans', Arial, sans-serif;
     font-weight: 600;
 }
 
@@ -627,7 +684,13 @@ nav {
     font-size: 0.8rem;
     font-weight: 600;
     border-radius: 20px;
-    font-family: 'DM Sans', Arial, sans-serif;
+}
+
+.card-number {
+    color: var(--button-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
 }
 
 /* Two-column layout */
@@ -670,7 +733,6 @@ nav {
     margin-bottom: 6px;
     font-weight: 600;
     color: var(--text-color);
-    font-family: 'DM Sans', Arial, sans-serif;
     font-size: 0.95rem;
 }
 
@@ -681,7 +743,6 @@ nav {
     padding: 12px 16px;
     border: 1px solid #ddd;
     border-radius: 6px;
-    font-family: 'DM Sans', Arial, sans-serif;
     font-size: 1rem;
     color: var(--text-color);
     transition: border-color 0.3s ease;
@@ -697,6 +758,33 @@ nav {
 .form-group textarea {
     min-height: 150px;
     resize: vertical;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-actions {
+    margin-top: 10px;
+}
+
+.form-submit {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--button-color);
+    color: var(--card-color);
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-submit:hover {
+    background-color: #4a8a04;
 }
 
 /* Contact info */
@@ -730,7 +818,6 @@ nav {
 .contact-item h4 {
     font-size: 1rem;
     margin-bottom: 4px;
-    font-family: 'DM Sans', Arial, sans-serif;
     font-weight: 600;
 }
 
@@ -746,7 +833,32 @@ nav {
     color: var(--link-color);
 }
 
-/* CTA banner — now uses accent color instead of link color */
+.contact-item.block {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.contact-item.block h4 {
+    color: var(--button-color);
+}
+
+/* FAQ styling */
+.faq {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-question {
+    color: var(--button-color);
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* CTA banner */
 .cta {
     background: linear-gradient(135deg, var(--accent-color), #d94a42);
     color: var(--card-color);
@@ -757,9 +869,8 @@ nav {
 }
 
 .cta h2 {
-    font-size: 2rem;
+    font-size: var(--heading-md);
     margin-bottom: 16px;
-    font-family: 'DM Sans', Arial, sans-serif;
     font-weight: 700;
 }
 
@@ -778,13 +889,19 @@ nav {
     text-decoration: none;
     border-radius: 6px;
     font-weight: 600;
-    font-family: 'DM Sans', Arial, sans-serif;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cta .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta .btn.secondary {
+    background: transparent;
+    border: 2px solid var(--main-color);
+    color: var(--text-color);
+    margin-left: 12px;
 }
 
 /* Table styles */
@@ -807,13 +924,12 @@ td {
     padding: 14px 20px;
     text-align: left;
     border-bottom: 1px solid #eee;
-    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 0.95rem;
 }
 
 th {
     background-color: var(--button-color);
     color: var(--main-color);
-    font-size: 0.95rem;
     font-weight: 600;
 }
 
@@ -835,7 +951,7 @@ tbody tr:hover {
     border: 0;
 }
 
-/* Text list with icons */
+/* Icon list */
 .icon-list {
     list-style: none;
 }
@@ -860,16 +976,54 @@ tbody tr:hover {
     background-color: var(--button-color);
 }
 
+/* Partner badges */
+.partners {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.6;
+}
+
+.partner-badge {
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: var(--card-color);
+    font-weight: 600;
+    color: #888;
+}
+
+/* Team member card */
+.team-card {
+    text-align: center;
+    padding: 32px;
+}
+
+.team-card .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin: 0 auto 16px;
+}
+
+.team-card .title {
+    color: var(--button-color);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
 /* ===== Footer ===== */
 footer {
     background-color: var(--footer-bg);
     color: var(--footer-text);
-    font-family: 'DM Sans', Arial, sans-serif;
     padding: 60px var(--mobile-padding) 30px;
     margin-top: 40px;
 }
 
-footer .footer-content {
+.footer-content {
     display: grid;
     grid-template-columns: 1fr;
     gap: 40px;
@@ -877,39 +1031,63 @@ footer .footer-content {
     margin: 0 auto;
 }
 
-footer .footer-col h4 {
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    height: 36px;
+}
+
+.footer-logo span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--card-color);
+}
+
+.footer-text {
+    color: rgba(204, 204, 204, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 280px;
+}
+
+.footer-col h4 {
     font-size: 1.1rem;
     color: var(--card-color);
     margin-bottom: 20px;
     font-weight: 600;
 }
 
-footer .footer-col ul {
+.footer-col ul {
     list-style: none;
 }
 
-footer .footer-col ul li {
+.footer-col ul li {
     margin-bottom: 10px;
 }
 
-footer .footer-col ul li a {
+.footer-col ul li a {
     color: var(--footer-text);
     text-decoration: none;
     font-size: 0.95rem;
     transition: color 0.3s ease;
 }
 
-footer .footer-col ul li a:hover {
+.footer-col ul li a:hover {
     color: var(--link-color);
 }
 
-footer .social-links {
+.social-links {
     display: flex;
     gap: 16px;
     margin-top: 20px;
 }
 
-footer .social-links a {
+.social-links a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -922,18 +1100,30 @@ footer .social-links a {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-footer .social-links a:hover {
+.social-links a:hover {
     background-color: var(--link-color);
     color: var(--card-color);
 }
 
-footer .social-links svg {
+.social-links svg {
     width: 18px;
     height: 18px;
     fill: currentColor;
 }
 
-footer .copyright {
+.phone-number {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent-red);
+    margin-bottom: 16px;
+}
+
+.footer-small {
+    font-size: 0.85rem;
+    color: rgba(204, 204, 204, 0.7);
+}
+
+.copyright {
     text-align: center;
     padding-top: 30px;
     margin-top: 30px;
@@ -944,24 +1134,24 @@ footer .copyright {
 
 /* Responsive footer */
 @media (min-width: 768px) {
-    footer .footer-content {
+    .footer-content {
         grid-template-columns: repeat(2, 1fr);
         gap: 40px;
     }
 
-    footer .footer-col h4 {
+    .footer-col h4 {
         font-size: 1.15rem;
     }
 }
 
 @media (min-width: 1024px) {
-    footer .footer-content {
+    .footer-content {
         grid-template-columns: repeat(4, 1fr);
         gap: 40px;
     }
 }
 
-/* Responsive */
+/* ===== Responsive Design ===== */
 @media (min-width: 768px) {
     .hero {
         padding: 120px var(--mobile-padding) 60px;
@@ -976,8 +1166,9 @@ footer .copyright {
         gap: 50px;
     }
 
-    .section {
-        padding: 80px 100px;
+    .section,
+    .section.alt {
+        padding: 80px var(--laptop-padding);
     }
 }
 
@@ -996,10 +1187,15 @@ footer .copyright {
         padding: 12px 16px;
         font-size: 0.9rem;
     }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-    .section {
+    .section,
+    .section.alt {
         padding: 80px 50px;
     }
 
